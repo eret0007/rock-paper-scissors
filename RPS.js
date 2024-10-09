@@ -1,6 +1,11 @@
 // random computer choice
 //make one round
 // make 5 rounds
+let userScore = 0
+let compScore = 0
+
+
+
 let userChoice = ""
 let compChoice = null
 const rock = document.querySelector("#rock")
@@ -8,12 +13,24 @@ const paper = document.querySelector("#paper")
 const scissors= document.querySelector("#scissors")
 const btn = document.querySelector("#btn")
 
-let userScore = NaN
-let compScore = NaN
+
 const text = document.querySelector("#text")
-     
+const winnerText = document.querySelector("#u")    
     
-     
+     const checkWinner = () => {
+          if (userScore >= 5) {winnerText.textContent = "YOU WONNNN!!!! WITH FIVE POINTS"
+               rock.removeEventListener("click", userRock )
+               paper.removeEventListener("click",userPaper )
+               scissors.removeEventListener("click", userScissors )
+          }
+          else if (compScore >= 5) {winnerText.textContent = "YOU LOST :((( AGAINST THE COMPUTER WHO HAS 5 POINTS"
+               rock.removeEventListener("click", userRock )
+               paper.removeEventListener("click",userPaper )
+               scissors.removeEventListener("click", userScissors )
+          }
+
+     }
+       
      
      
      const userRock = function () {
@@ -24,11 +41,23 @@ const text = document.querySelector("#text")
                else if (a <= 2) comp = "paper"
                else comp = "scissors"
                
-               if (comp == "scissors") text.textContent = "The computer picked scissors, you WON!!!!!"
-               else if (comp == "rock") text.textContent = "You both picked rock, its a draw"
-             else if (comp == "paper") text.textContent = "The computer picked a paper, lost :( "
+               if (comp == "scissors") {text.textContent = "The computer picked scissors, you WON!!!!!" 
+                    userScore++
+                    console.log(userScore, compScore) 
+                   
+               }
+               else if (comp == "rock") {text.textContent = "You both picked rock, its a draw"
+                    console.log(userScore, compScore)  
+                    
+               }
+             else if (comp == "paper") {text.textContent = "The computer picked a paper, lost :( "
+               compScore++
+               
+               console.log(userScore, compScore)
+               
+          }
 
-     
+          checkWinner()
      }
      const userPaper = function () {
           userChoice = "paper"
@@ -39,11 +68,20 @@ const text = document.querySelector("#text")
                else comp = "scissors"
           
 
-               if (comp == "scissors") text.textContent = "The computer picked scissors, you lost :("
-               else if (comp == "rock") text.textContent = "The computer picked a rock, you WON!!!!"
-             else if (comp == "paper") text.textContent = "You both picked paper, its a tie"
-
-          
+               if (comp == "scissors") {text.textContent = "The computer picked scissors, you lost :("
+                    compScore++ 
+                    console.log(userScore, compScore)
+               }
+               else if (comp == "rock") {text.textContent = "The computer picked a rock, you WON!!!!"
+                    userScore++ 
+                    console.log(userScore, compScore)
+               }
+             else if (comp == "paper") {text.textContent = "You both picked paper, its a tie"
+               
+               console.log(userScore, compScore)
+             }
+                                 
+             checkWinner()
      }
      const userScissors = function () {
           userChoice = "scissors"
@@ -54,12 +92,24 @@ const text = document.querySelector("#text")
                else comp = "scissors"
               
               
-               if (comp == "scissors") text.textContent = "You both picked scissors, its a draw"
-               else if (comp == "rock") text.textContent = "The computer picked a rock, you LOST :( "
-             else if (comp == "paper") text.textContent = "The computer picked a paper, you WON!!!!!"
+               if (comp == "scissors") {text.textContent = "You both picked scissors, its a draw"
+                    console.log(userScore, compScore)
+                    checkWinner()
+               }
+               else if (comp == "rock") {text.textContent = "The computer picked a rock, you LOST :( "
+                    compScore++
+                    console.log(userScore, compScore)
+                    checkWinner()
+               }
+
+             else if (comp == "paper") {text.textContent = "The computer picked a paper, you WON!!!!!"
+               userScore++
+               console.log(userScore, compScore)
+               checkWinner()
+             }
 
                
-               
+             checkWinner()
                
      
      }
@@ -69,6 +119,10 @@ const text = document.querySelector("#text")
      rock.addEventListener("click", userRock )
      paper.addEventListener("click",userPaper )
      scissors.addEventListener("click", userScissors )
+
+
+
+
    
  
 

@@ -1,12 +1,110 @@
 // random computer choice
 //make one round
 // make 5 rounds
+let userChoice = ""
+let compChoice = null
+const rock = document.querySelector("#rock")
+const paper = document.querySelector("#paper")
+const scissors= document.querySelector("#scissors")
+const btn = document.querySelector("#btn")
 
-
+let userScore = NaN
+let compScore = NaN
+const text = document.querySelector("#text")
+     
+    
+     
+     
+     
+     const userRock = function () {
+          userChoice = "rock"
+          
+          a = Math.random( ) * 3
+               if (a <= 1) comp = "rock"
+               else if (a <= 2) comp = "paper"
+               else comp = "scissors"
+               
+               if (comp == "scissors") text.textContent = "The computer picked scissors, you WON!!!!!"
+               else if (comp == "rock") text.textContent = "You both picked rock, its a draw"
+             else if (comp == "paper") text.textContent = "The computer picked a paper, lost :( "
 
      
+     }
+     const userPaper = function () {
+          userChoice = "paper"
+          
+          a = Math.random( ) * 3
+               if (a <= 1) comp = "rock"
+               else if (a <= 2) comp = "paper"
+               else comp = "scissors"
+          
 
-let a = null
+               if (comp == "scissors") text.textContent = "The computer picked scissors, you lost :("
+               else if (comp == "rock") text.textContent = "The computer picked a rock, you WON!!!!"
+             else if (comp == "paper") text.textContent = "You both picked paper, its a tie"
+
+          
+     }
+     const userScissors = function () {
+          userChoice = "scissors"
+          
+          a = Math.random( ) * 3
+               if (a <= 1) comp = "rock"
+               else if (a <= 2) comp = "paper"
+               else comp = "scissors"
+              
+              
+               if (comp == "scissors") text.textContent = "You both picked scissors, its a draw"
+               else if (comp == "rock") text.textContent = "The computer picked a rock, you LOST :( "
+             else if (comp == "paper") text.textContent = "The computer picked a paper, you WON!!!!!"
+
+               
+               
+               
+     
+     }
+     
+     
+     
+     rock.addEventListener("click", userRock )
+     paper.addEventListener("click",userPaper )
+     scissors.addEventListener("click", userScissors )
+   
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*let a = null
 let comp = null
 
 
@@ -63,3 +161,4 @@ function round() {
 
 round()
 
+*/

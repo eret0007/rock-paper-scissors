@@ -1,0 +1,34 @@
+#container {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+#containerOne {
+    display: flex;
+    gap: 100px;
+    align-items: center;
+    justify-content: center;
+}
+
+
+#rock {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+
+#paper {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
+
+#scissors {
+    width: 100px;
+    height: 100px;
+    cursor: pointer;
+}
